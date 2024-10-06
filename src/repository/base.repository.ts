@@ -1,5 +1,5 @@
-import { FindOptionsWhere, Repository } from "typeorm";
-import { IBaseRepository } from "./interface/base.repository.interface";
+import { FindOptionsWhere, Repository } from 'typeorm';
+import { IBaseRepository } from './interface/base.repository.interface';
 
 export abstract class BaseRepository<T> implements IBaseRepository<T> {
   constructor(protected readonly repository: Repository<T>) {}
@@ -9,7 +9,9 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
     return await this.repository.save(entity);
   }
 
-  async find(findOptionsWhere: FindOptionsWhere<T> | FindOptionsWhere<T>[]): Promise<T>{
+  async find(
+    findOptionsWhere: FindOptionsWhere<T> | FindOptionsWhere<T>[],
+  ): Promise<T> {
     return await this.repository.findOneBy(findOptionsWhere);
   }
 
