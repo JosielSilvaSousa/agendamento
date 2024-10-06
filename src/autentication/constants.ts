@@ -1,0 +1,1 @@
+export const jwtConstants = { secret: "projeto-agendamento-paciente" };
