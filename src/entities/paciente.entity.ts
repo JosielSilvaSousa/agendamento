@@ -4,7 +4,7 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
-  ManyToMany,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -27,7 +27,7 @@ export class PacienteEntity {
   @Column({ name: 'telefone' })
   telefone: string;
 
-  @ManyToMany(() => AgendamentoEntity, (agendamento) => agendamento.id, {
+  @OneToMany(() => AgendamentoEntity, (agendamento) => agendamento.id, {
     cascade: ['insert', 'update'],
     eager: true,
   })

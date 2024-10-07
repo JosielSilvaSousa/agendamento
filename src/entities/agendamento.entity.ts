@@ -4,7 +4,7 @@ import {
   DeleteDateColumn,
   Entity,
   JoinColumn,
-  OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -15,7 +15,7 @@ export class AgendamentoEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToMany(() => PacienteEntity, (paciente) => paciente.id, {
+  @ManyToOne(() => PacienteEntity, (paciente) => paciente.id, {
     cascade: ['insert', 'update'], eager:true
   })
   @JoinColumn({ name: 'paciente_id', referencedColumnName: 'id' })
