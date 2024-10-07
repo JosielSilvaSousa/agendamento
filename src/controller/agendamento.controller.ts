@@ -53,12 +53,15 @@ export class AgendamentoController {
     @Body(ArrayValidationPipe(CreateAgendamentoDto))
     body: [CreateAgendamentoDto],
   ): Promise<ReturnAgendamentoDto[]> {
-    return await this.iService.create(body);
+    const response = await this.iService.create(body);
+    return response.map((agendamento)=> new ReturnAgendamentoDto(agendamento))
   }
   @Get()
   public async findAll(): Promise<ReturnAgendamentoDto[]> {
     try {
-      return await this.iService.findAll();
+      const response = await this.iService.findAll();
+      return response.map((agendamento)=> new ReturnAgendamentoDto(agendamento))
+
     } catch (error) {
       throw new HttpException(
         {

@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -16,15 +15,14 @@ export class AgendamentoEntity {
   id: number;
 
   @ManyToOne(() => PacienteEntity, (paciente) => paciente.id, {
-    cascade: ['insert', 'update'], eager:true
+    cascade: ['insert', 'update']
   })
-  @JoinColumn({ name: 'paciente_id', referencedColumnName: 'id' })
-  paciente_id: PacienteEntity;
+  pacienteId: number;
 
   @Column({ name: 'data' })
   data: Date;
 
-  @Column({ name: 'sexo' })
+  @Column({ name: 'atendimento' })
   atendimento: string;
 
   @CreateDateColumn({ name: 'created_at' })

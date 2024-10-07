@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -27,12 +26,18 @@ export class PacienteEntity {
   @Column({ name: 'telefone' })
   telefone: string;
 
-  @OneToMany(() => AgendamentoEntity, (agendamento) => agendamento.id, {
+  @Column({ name: 'altura' })
+  altura: string;
+
+  @Column({ name: 'peso' })
+  peso: string;
+
+  @OneToMany(() => AgendamentoEntity, (agendamento) => agendamento.pacienteId, {
     cascade: ['insert', 'update'],
     eager: true,
   })
-  @JoinColumn({ name: 'agendamento_id', referencedColumnName: 'id' })
-  agendamento_id: AgendamentoEntity;
+  //@JoinColumn({ name: 'agendamento_id', referencedColumnName: 'id' })
+  agendamento: AgendamentoEntity[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

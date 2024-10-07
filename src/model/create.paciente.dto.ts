@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsDate, IsEnum, IsNotEmpty, IsPhoneNumber } from 'class-validator';
-import { CreateAgendamentoDto } from './create-agendamento.dto';
+import { IsDate, IsDecimal, IsEnum, IsNotEmpty, IsPhoneNumber } from 'class-validator';
 
 export enum SexoEnum {
   Masculino = 'Masculino',
@@ -36,9 +35,17 @@ export class CreatePacienteDto {
   telefone?: string;
 
   @ApiProperty({
-    type: () => CreateAgendamentoDto,
-    description: "Código do agendamento",
-    example: '"1"',
+    description: 'informe sua altura',
+    example: '1,70',
   })
-  agendamento?: CreateAgendamentoDto;
+  @IsDecimal()
+  altura: string;
+
+  @ApiProperty({
+    description: 'informe seu peso',
+    example: '84,4',
+  })
+  @IsDecimal()
+  peso: string;
+
 }
