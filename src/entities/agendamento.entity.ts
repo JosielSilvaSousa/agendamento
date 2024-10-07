@@ -14,13 +14,17 @@ export class AgendamentoEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => PacienteEntity, (paciente) => paciente.id, {
+  @ManyToOne(() => PacienteEntity, (paciente) => paciente.agendamento, {
     cascade: ['insert', 'update']
   })
-  pacienteId: number;
+  //@JoinColumn({ name: 'pacienteId', referencedColumnName: 'id' })
+  paciente: PacienteEntity;
 
   @Column({ name: 'data' })
   data: Date;
+
+  @Column({ name: 'pacienteId' })
+  pacienteId:number;
 
   @Column({ name: 'atendimento' })
   atendimento: string;

@@ -12,8 +12,12 @@ import { AgendamentoModule } from './agendamento.module';
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'db',
-      synchronize: true,
+      // synchronize: true,
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
+      migrations:
+      [`${__dirname}/../migrations/{.ts,*.js}`],
+      migrationsRun: true,
+      logging: true
     }),
     AuthModule,
     UsersModule,

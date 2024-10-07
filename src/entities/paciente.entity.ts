@@ -17,7 +17,7 @@ export class PacienteEntity {
   @Column({ name: 'nome' })
   nome: string;
 
-  @Column({ name: 'data_nacimento' })
+  @Column({ name: 'data_nascimento' })
   data_nascimento: Date;
 
   @Column({ name: 'sexo' })
@@ -32,12 +32,12 @@ export class PacienteEntity {
   @Column({ name: 'peso' })
   peso: string;
 
-  @OneToMany(() => AgendamentoEntity, (agendamento) => agendamento.pacienteId, {
+  @OneToMany(() => AgendamentoEntity, (agendamento) => agendamento.paciente, {
     cascade: ['insert', 'update'],
     eager: true,
   })
   //@JoinColumn({ name: 'agendamento_id', referencedColumnName: 'id' })
-  agendamento: AgendamentoEntity[];
+  agendamento?: AgendamentoEntity[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

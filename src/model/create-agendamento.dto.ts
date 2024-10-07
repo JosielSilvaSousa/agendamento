@@ -13,6 +13,6 @@ export class CreateAgendamentoDto {
 
   @ApiProperty({description: "Código do paciente",example: "1",
   })
-  pacienteId: number;
+  pacienteId?: number;
 
 }
