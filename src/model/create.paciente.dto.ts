@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsDate, IsEnum, IsNotEmpty, IsPhoneNumber } from 'class-validator';
+import { CreateAgendamentoDto } from './create-agendamento.dto';
 
 export enum SexoEnum {
   Masculino = 'Masculino',
@@ -12,7 +13,7 @@ export class CreatePacienteDto {
   @IsNotEmpty()
   nome: string;
 
-  @ApiProperty({ description: 'informe seu email', example: '2021-01-01' })
+  @ApiProperty({ description: 'informe a data de nascimento', example: '2021-01-01' })
   @Transform(({ value }) => new Date(value))
   @IsDate()
   data_nascimento?: Date;
@@ -33,4 +34,11 @@ export class CreatePacienteDto {
     message: 'O número de telefone deve estar no formato válido para o Brasil',
   })
   telefone?: string;
+
+  @ApiProperty({
+    type: () => CreateAgendamentoDto,
+    description: "Código do agendamento",
+    example: '"1"',
+  })
+  agendamento?: CreateAgendamentoDto;
 }

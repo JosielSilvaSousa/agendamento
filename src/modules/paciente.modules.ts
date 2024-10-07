@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PacienteController } from 'src/controller/paciente.controller';
 import { PacienteEntity } from 'src/entities/paciente.entity';
@@ -6,9 +6,12 @@ import { IPacienteRepositoryToken } from 'src/repository/interface/paciente.repo
 import { PacienteRepository } from 'src/repository/paciente.repository';
 import { IPacienteServiceToken } from 'src/service/interfaces/paciente.service.interface';
 import { PacienteService } from 'src/service/paciente.service';
+import { AgendamentoModule } from './agendamento.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([PacienteEntity])],
+  imports: [
+        TypeOrmModule.forFeature([PacienteEntity]),
+        forwardRef(()=>AgendamentoModule)],
   controllers: [PacienteController],
   providers: [
     {
@@ -19,6 +22,7 @@ import { PacienteService } from 'src/service/paciente.service';
       provide: IPacienteRepositoryToken,
       useClass: PacienteRepository,
     },
+    
   ],
   exports: [IPacienteRepositoryToken, IPacienteServiceToken],
 })
