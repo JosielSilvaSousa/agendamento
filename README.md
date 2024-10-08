@@ -3,6 +3,7 @@
 1. [Visão Geral do Projeto](#link1)
 2. [Linguagens](#link2)
 3. [URL Swagger](#link3)
+3. [Conexão BD](#link4)
 
 ---
 
@@ -21,6 +22,22 @@ Api criada para cadastrar pacientes e agendar consultas.
 ```sh 
 localhost:3000/api 
 ```
+
+## <a id="link4" />Dados de conexão
+```sh dados de conexão com o BD arquivo app.module
+      type: "mysql",
+      host: "127.0.0.1",
+      port: Number(3306),
+      username: "consulta",
+      password: "root",
+      database: "agendamento",
+      entities: [__dirname + "/../**/*.entity.{js,ts}"],
+      migrations:
+         [`${__dirname}/../migrations/{.ts,*.js}`],
+      migrationsRun: true,
+      logging: true,
+ ```
+ # Será criado as tabelas via Migrations     
 
 
 # Comandos de execução
@@ -74,8 +91,6 @@ npx @compodoc/compodoc -p tsconfig.json -s
 
 # Contribuintes
 **[Josiel]()**
-
-
 
 # Links
 
