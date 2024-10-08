@@ -53,7 +53,7 @@ export class AgendamentoController {
     @Body(ArrayValidationPipe(CreateAgendamentoDto))
     body: [CreateAgendamentoDto],
   ): Promise<ReturnAgendamentoDto[]> {
-    const response = await this.iService.create(body);
+    const response = await this.iService.createAgenda(body);
     return response.map((agendamento)=> new ReturnAgendamentoDto(agendamento))
   }
   @Get()

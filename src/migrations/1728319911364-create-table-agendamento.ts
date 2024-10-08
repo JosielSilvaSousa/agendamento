@@ -32,18 +32,20 @@ export class CreateTableAgendamento1728319911364 implements MigrationInterface {
                 },
                 {
                     name: "created_at",
-                    type: "dateTime",
+                    type: "datetime",
+                    default: `CURRENT_TIMESTAMP`,
                 },
                 {
                     name: "updated_at",
-                    type: "dateTime",
-                    default: "CURRENT_TIMESTAMP",
+                    type: "datetime",
+                    default: `CURRENT_TIMESTAMP`,
+                    onUpdate: "CURRENT_TIMESTAMP",
                 },
                 {
                     name: "deleted_at",
-                    type: "dateTime",
+                    type: "datetime", 
                     isNullable: true,
-                    default: "NULL",
+                    default: null, 
                 },
             ],    
             foreignKeys: [

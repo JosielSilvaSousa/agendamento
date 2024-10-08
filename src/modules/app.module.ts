@@ -10,14 +10,25 @@ import { AgendamentoModule } from './agendamento.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db',
-      // synchronize: true,
-      entities: [__dirname + '/../**/*.entity.{js,ts}'],
+      type: "mysql",
+      host: "127.0.0.1",
+      port: Number(3306),
+      username: "consulta",
+      password: "root",
+      database: "agendamento",
+      entities: [__dirname + "/../**/*.entity.{js,ts}"],
       migrations:
-      [`${__dirname}/../migrations/{.ts,*.js}`],
+         [`${__dirname}/../migrations/{.ts,*.js}`],
       migrationsRun: true,
-      logging: true
+      logging: true,
+      // type: 'sqlite',
+      // database: 'db',
+      // // synchronize: true,
+      // entities: [__dirname + '/../**/*.entity.{js,ts}'],
+      // migrations:
+      // [`${__dirname}/../migrations/{.ts,*.js}`],
+      // migrationsRun: true,
+      // logging: true
     }),
     AuthModule,
     UsersModule,

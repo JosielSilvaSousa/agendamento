@@ -3,7 +3,7 @@ import { Transform } from 'class-transformer';
 import { IsDate } from 'class-validator';
 
 export class CreateAgendamentoDto {
-  @ApiProperty({ description: 'informe a data do agendamento', example: '2024-10-10' })
+  @ApiProperty({ description: 'informe a data do agendamento', example: '2024-10-10 00:00:00' })
   @Transform(({ value }) => new Date(value))
   @IsDate()
   data: Date;

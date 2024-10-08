@@ -27,7 +27,7 @@ export class CreatePacienteDto {
 
   @ApiProperty({
     description: 'informe seu telefone',
-    example: '(11)9999-9999',
+    example: '(11)99999-9999',
   })
   @IsPhoneNumber('BR', {
     message: 'O número de telefone deve estar no formato válido para o Brasil',
@@ -36,14 +36,14 @@ export class CreatePacienteDto {
 
   @ApiProperty({
     description: 'informe sua altura',
-    example: '1,70',
+    example: '1.70',
   })
   @IsDecimal()
   altura: string;
 
   @ApiProperty({
     description: 'informe seu peso',
-    example: '84,4',
+    example: '84.4',
   })
   @IsDecimal()
   peso: string;

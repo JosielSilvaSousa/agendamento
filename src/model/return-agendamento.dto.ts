@@ -1,15 +1,18 @@
-import { ApiProperty } from "@nestjs/swagger";
 import { CreateAgendamentoDto } from "./create-agendamento.dto";
 import { AgendamentoEntity } from "src/entities/agendamento.entity";
+import { CreatePacienteDto } from "./create.paciente.dto";
 
 export class ReturnAgendamentoDto extends CreateAgendamentoDto {
-  @ApiProperty({ description: 'ID do paciente', example: 1 })
-  pacienteId: number; 
+  id :number
+  paciente?: CreatePacienteDto;
 
   constructor(agendamento: AgendamentoEntity) {
     super();
+    console.log(agendamento);
+    this.id = agendamento.id;
+    this.paciente = agendamento.paciente;
     this.data = agendamento.data;
     this.atendimento = agendamento.atendimento;
-    this.pacienteId = agendamento.paciente?.id; 
+    this.pacienteId = agendamento.pacienteId; 
   }
 }

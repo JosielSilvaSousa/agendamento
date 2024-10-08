@@ -11,7 +11,8 @@ import {
   Body,
   Param,
   UseGuards,
-  Inject
+  Inject,
+  Patch
 } from '@nestjs/common/decorators';
 import { AuthGuard } from '@nestjs/passport';
 import {
@@ -76,13 +77,41 @@ export class PacienteController {
     return await this.iService.find({ id });
   }
 
+  @Patch(":id")
+  public async update(
+    @Param("id") id: number,
+    @Body() updatePaciente: CreatePacienteDto
+  ) :Promise<ReturnPacienteDto>{
+    try {
+      return await this.iService.update(id, updatePaciente);   
+    } catch (error) {
+      throw new HttpException(
+        {
+          message: 'Erro ao alterar o paciente: ' + error.message,
+          success: false,
+          error,
+          data: null,
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
+
   @Delete(':id')
   public async Delete(@Param('id') id: number): Promise<string> {
     try {
       await this.iService.delete(id);
       return 'Paciente excluido com sucesso!';
     } catch (error) {
-      return `Erro eo excluír o paciente! ${id} , ${error.message}`;
+      throw new HttpException(
+        {
+          message: 'Erro ao deletar o paciente: ' + error.message,
+          success: false,
+          error,
+          data: null,
+        },
+        HttpStatus.BAD_REQUEST,
+      );
     }
   }
 }

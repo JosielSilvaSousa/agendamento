@@ -16,4 +16,10 @@ export class AgendamentoRepository
   ) {
     super(agendamentoRepository);
   }
+
+  public async findDate(data: Date): Promise<AgendamentoEntity>
+  {
+    return await this.repository.findOne({ where: { data } });
+  }
+
 }

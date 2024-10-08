@@ -1,5 +1,6 @@
 import { FindOptionsWhere, Repository } from 'typeorm';
 import { IBaseRepository } from './interface/base.repository.interface';
+import { HttpException } from '@nestjs/common';
 
 export abstract class BaseRepository<T> implements IBaseRepository<T> {
   constructor(protected readonly repository: Repository<T>) {}
@@ -25,6 +26,11 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
   }
 
   async delete(id: number): Promise<void> {
-    await this.repository.delete(id);
+    const item = await this.repository.findOne({where: { id} } as any);
+
+    if (!item) {
+      throw new HttpException(`paciente id: ${id} não encontrado.`, 444);
+  }
+   this.repository.softRemove(item);
   }
 }

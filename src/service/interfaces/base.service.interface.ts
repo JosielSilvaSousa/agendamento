@@ -5,7 +5,7 @@ export interface IBaseService<T> {
     findOptionsWhere: FindOptionsWhere<T> | FindOptionsWhere<T>[],
   ): Promise<T>;
   findAll(): Promise<T[]>;
-  update(id: number, item: T): Promise<T>;
+  update(id: number, item: any): Promise<T>;
   delete(id: number): Promise<void>;
 }
 
