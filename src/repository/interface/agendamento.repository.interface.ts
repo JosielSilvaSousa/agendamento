@@ -1,4 +1,4 @@
-import { AgendamentoEntity } from 'src/entities/agendamento.entity';
+import { AgendamentoEntity } from 'entities/agendamento.entity';
 import { IBaseRepository } from './base.repository.interface';
 
 export interface IAgendamentoRepository

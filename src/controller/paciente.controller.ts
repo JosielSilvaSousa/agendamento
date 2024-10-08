@@ -23,10 +23,10 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { ArrayValidationPipe } from 'src/middleware/array.Validation.Pipe';
-import { CreatePacienteDto } from 'src/model/create.paciente.dto';
-import { ReturnPacienteDto } from 'src/model/return.paciente.dto';
-import { IPacienteService, IPacienteServiceToken } from 'src/service/interfaces/paciente.service.interface';
+import { ArrayValidationPipe } from '../middleware/array.Validation.Pipe';
+import { CreatePacienteDto } from '../model/create.paciente.dto';
+import { ReturnPacienteDto } from '../model/return.paciente.dto';
+import { IPacienteService, IPacienteServiceToken } from '../service/interfaces/paciente.service.interface';
 
 @ApiUnauthorizedResponse({
   description: 'Unauthorized - usuário não autorizado',
@@ -51,7 +51,7 @@ export class PacienteController {
   @Post()
   @ApiBody({ type: [CreatePacienteDto] })
   public async Create(
-    @Body(ArrayValidationPipe(CreatePacienteDto)) body: [CreatePacienteDto],
+    @Body(ArrayValidationPipe(CreatePacienteDto)) body: CreatePacienteDto[],
   ): Promise<ReturnPacienteDto[]> {
     return await this.iService.create(body);
   }

@@ -18,6 +18,12 @@ Api criada para cadastrar pacientes e agendar consultas.
     <img src="https://img.shields.io/badge/typescript-D4FAFF?style=for-the-badge&logo=typescript">
 </p>
 
+Ferramentas utilizadas
+VcCode
+prettierrc
+eslintrc
+
+
 ## <a id="link3" />Swagger
 ```sh 
 localhost:3000/api 

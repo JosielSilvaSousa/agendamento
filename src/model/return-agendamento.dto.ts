@@ -1,5 +1,5 @@
 import { CreateAgendamentoDto } from "./create-agendamento.dto";
-import { AgendamentoEntity } from "src/entities/agendamento.entity";
+import { AgendamentoEntity } from "../entities/agendamento.entity";
 import { CreatePacienteDto } from "./create.paciente.dto";
 
 export class ReturnAgendamentoDto extends CreateAgendamentoDto {

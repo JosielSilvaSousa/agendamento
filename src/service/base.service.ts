@@ -1,4 +1,4 @@
-import { IBaseRepository } from 'src/repository/interface/base.repository.interface';
+import { IBaseRepository } from '../repository/interface/base.repository.interface';
 import { IBaseService } from './interfaces/base.service.interface';
 import { FindOptionsWhere } from 'typeorm';
 

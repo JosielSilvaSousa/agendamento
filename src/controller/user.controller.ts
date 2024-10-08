@@ -2,11 +2,11 @@ import { Controller, HttpException, HttpStatus, ParseIntPipe } from "@nestjs/com
 import {Get, Delete, Post, Body, Param, HttpCode, UseGuards, Inject,} from "@nestjs/common/decorators";
 import { AuthGuard } from "@nestjs/passport";
 import {ApiBearerAuth, ApiBody, ApiNotFoundResponse, ApiResponse, ApiTags, ApiUnauthorizedResponse } from "@nestjs/swagger";
-import { ReturnUserDto } from "src/model/return.user.dto";
-import { CreateUserDto } from "src/model/create-user.dto";
-import { IUserRepositoryToken } from "src/repository/interface/user.repository.interface";
-import { IUserService } from "src/service/interfaces/user.service.interface";
-import { ArrayValidationPipe } from "src/middleware/array.Validation.Pipe";
+import { ReturnUserDto } from "../model/return.user.dto";
+import { CreateUserDto } from "../model/create-user.dto";
+import { IUserRepositoryToken } from "../repository/interface/user.repository.interface";
+import { IUserService } from "../service/interfaces/user.service.interface";
+import { ArrayValidationPipe } from "../middleware/array.Validation.Pipe";
 
   
   @ApiUnauthorizedResponse({

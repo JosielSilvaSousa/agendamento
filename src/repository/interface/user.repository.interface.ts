@@ -1,4 +1,4 @@
-import { UserEntity } from 'src/entities/user.entity';
+import { UserEntity } from 'entities/user.entity';
 import { IBaseRepository } from './base.repository.interface';
 import { FindOptionsWhere } from 'typeorm';
 

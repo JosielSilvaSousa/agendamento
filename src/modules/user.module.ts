@@ -3,9 +3,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { UserRepository } from '../repository/users.repository';
 import { UserService } from '../service/users.service';
-import { UsersController } from 'src/controller/user.controller';
-import { IUserServiceToken } from 'src/service/interfaces/user.service.interface';
-import { IUserRepositoryToken } from 'src/repository/interface/user.repository.interface';
+import { UsersController } from '../controller/user.controller';
+import { IUserServiceToken } from '../service/interfaces/user.service.interface';
+import { IUserRepositoryToken } from '../repository/interface/user.repository.interface';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],

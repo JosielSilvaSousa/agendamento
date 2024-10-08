@@ -6,7 +6,7 @@ import { LocaStrategy } from '../autentication/strategies/local.strategy';
 import { JwtStrategy } from '../autentication/strategies/jwt.strategy';
 import { jwtConstants } from '../autentication/constants';
 import { AuthService } from '../service/auth.services';
-import { AuthController } from 'src/controller/auth.controller';
+import { AuthController } from '../controller/auth.controller';
 import { UsersModule } from './user.module';
 
 @Module({

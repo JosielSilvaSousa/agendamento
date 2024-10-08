@@ -2,11 +2,11 @@ import { Inject, Injectable } from '@nestjs/common';
 import { compareSync } from 'bcrypt';
 import { BaseService } from './base.service';
 import { IUserService } from './interfaces/user.service.interface';
-import { UserEntity } from 'src/entities/user.entity';
+import { UserEntity } from '../entities/user.entity';
 import {
   IUserRepository,
   IUserRepositoryToken,
-} from 'src/repository/interface/user.repository.interface';
+} from '../repository/interface/user.repository.interface';
 import { FindOptionsWhere } from 'typeorm';
 
 @Injectable()

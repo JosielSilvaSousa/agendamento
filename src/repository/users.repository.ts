@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { BaseRepository } from './base.repository';
 import { IUserRepository } from './interface/user.repository.interface';
-import { UserEntity } from 'src/entities/user.entity';
+import { UserEntity } from '../entities/user.entity';
 import { NotFoundError } from 'rxjs';
 @Injectable()
 export class UserRepository

@@ -4,9 +4,9 @@ import { IAgendamentoService } from './interfaces/agendamento.service.interface'
 import {
   IAgendamentoRepository,
   IAgendamentoRepositoryToken,
-} from 'src/repository/interface/agendamento.repository.interface';
-import { AgendamentoEntity } from 'src/entities/agendamento.entity';
-import { CreateAgendamentoDto } from 'src/model/create-agendamento.dto';
+} from '../repository/interface/agendamento.repository.interface';
+import { AgendamentoEntity } from '../entities/agendamento.entity';
+import { CreateAgendamentoDto } from '../model/create-agendamento.dto';
 @Injectable()
 export class AgendamentoService
   extends BaseService<AgendamentoEntity>
@@ -19,7 +19,7 @@ export class AgendamentoService
     super(agendamentoRepository);
   }
 
-  async createAgenda(data: [CreateAgendamentoDto]): Promise<AgendamentoEntity[]> {
+  async createAgenda(data: CreateAgendamentoDto[]): Promise<AgendamentoEntity[]> {
     const isExiste = await this.agendamentoRepository.findDate(data[0].data)
     if(isExiste){
       throw new HttpException(`já existe um agendamento neste horário.`, 444);

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AgendamentoController } from 'src/controller/agendamento.controller';
-import { AgendamentoEntity } from 'src/entities/agendamento.entity';
-import { AgendamentoRepository } from 'src/repository/agendamento.repository';
-import { IAgendamentoRepositoryToken } from 'src/repository/interface/agendamento.repository.interface';
-import { AgendamentoService } from 'src/service/agendamento.service';
-import { IAgendamentoServiceToken } from 'src/service/interfaces/agendamento.service.interface';
+import { AgendamentoController } from '../controller/agendamento.controller';
+import { AgendamentoEntity } from '../entities/agendamento.entity';
+import { AgendamentoRepository } from '../repository/agendamento.repository';
+import { IAgendamentoRepositoryToken } from '../repository/interface/agendamento.repository.interface';
+import { AgendamentoService } from '../service/agendamento.service';
+import { IAgendamentoServiceToken } from '../service/interfaces/agendamento.service.interface';
 
 @Module({
   imports: [TypeOrmModule.forFeature([AgendamentoEntity])],

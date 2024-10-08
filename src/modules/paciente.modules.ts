@@ -1,11 +1,11 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PacienteController } from 'src/controller/paciente.controller';
-import { PacienteEntity } from 'src/entities/paciente.entity';
-import { IPacienteRepositoryToken } from 'src/repository/interface/paciente.repository.interface';
-import { PacienteRepository } from 'src/repository/paciente.repository';
-import { IPacienteServiceToken } from 'src/service/interfaces/paciente.service.interface';
-import { PacienteService } from 'src/service/paciente.service';
+import { PacienteController } from '../controller/paciente.controller';
+import { PacienteEntity } from '../entities/paciente.entity';
+import { IPacienteRepositoryToken } from '../repository/interface/paciente.repository.interface';
+import { PacienteRepository } from '../repository/paciente.repository';
+import { IPacienteServiceToken } from '../service/interfaces/paciente.service.interface';
+import { PacienteService } from '../service/paciente.service';
 import { AgendamentoModule } from './agendamento.module';
 
 @Module({

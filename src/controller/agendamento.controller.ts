@@ -22,10 +22,10 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { ArrayValidationPipe } from 'src/middleware/array.Validation.Pipe';
-import { CreateAgendamentoDto } from 'src/model/create-agendamento.dto';
-import { ReturnAgendamentoDto } from 'src/model/return-agendamento.dto';
-import { IAgendamentoService, IAgendamentoServiceToken } from 'src/service/interfaces/agendamento.service.interface';
+import { ArrayValidationPipe } from '../middleware/array.Validation.Pipe';
+import { CreateAgendamentoDto } from '../model/create-agendamento.dto';
+import { ReturnAgendamentoDto } from '../model/return-agendamento.dto';
+import { IAgendamentoService, IAgendamentoServiceToken } from '../service/interfaces/agendamento.service.interface';
 
 @ApiUnauthorizedResponse({
   description: 'Unauthorized - usuário não autorizado',
@@ -51,7 +51,7 @@ export class AgendamentoController {
   @ApiBody({ type: [CreateAgendamentoDto] })
   public async Create(
     @Body(ArrayValidationPipe(CreateAgendamentoDto))
-    body: [CreateAgendamentoDto],
+    body: CreateAgendamentoDto[],
   ): Promise<ReturnAgendamentoDto[]> {
     const response = await this.iService.createAgenda(body);
     return response.map((agendamento)=> new ReturnAgendamentoDto(agendamento))
