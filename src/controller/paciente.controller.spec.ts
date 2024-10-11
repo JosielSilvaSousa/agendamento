@@ -1,7 +1,7 @@
-import { CreatePacienteDto } from "../src/model/create.paciente.dto";
-import { PacienteController } from "../src/controller/paciente.controller";
-import { ReturnPacienteDto } from "../src/model/return.paciente.dto";
 import { HttpException, HttpStatus } from "@nestjs/common";
+import { PacienteController } from "./paciente.controller";
+import { CreatePacienteDto } from "../model/create.paciente.dto";
+import { ReturnPacienteDto } from "../model/return.paciente.dto";
 
 it('should return a list of ReturnPacienteDto when creating a paciente with valid data', async () => {
     const mockPacienteService = {
