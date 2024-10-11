@@ -30,19 +30,14 @@ localhost:3000/api
 ```
 
 ## <a id="link4" />Dados de conexão
-```sh dados de conexão com o BD arquivo app.module
-      type: "mysql",
-      host: "127.0.0.1",
-      port: Number(3306),
-      username: "consulta",
-      password: "root",
-      database: "agendamento",
-      entities: [__dirname + "/../**/*.entity.{js,ts}"],
-      migrations:
-         [`${__dirname}/../migrations/{.ts,*.js}`],
-      migrationsRun: true,
-      logging: true,
- ```
+.env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USERNAME=consulta
+DB_PASSWORD=root
+DB_NAME=agendamento
+DB_SERVER_PORT=3000
+
  # Será criado as tabelas via Migrations     
 
 
@@ -62,12 +57,12 @@ npm install
 npm run start:dev(necessario criar o BD antes usando o comando o docker-compose)
 
 
-```sh docker-compose
-docker compose -f "docker-compose.yaml" up -d --build 
+```sh matar container
+docker-compose down #para matar o container
 ```
 
-```sh iniciando a aplicação
-docker-compose-up 
+```sh iniciar aplicação
+docker-compose up --build 
 ```
 
 Para criar um build:
