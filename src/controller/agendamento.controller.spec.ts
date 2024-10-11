@@ -1,3 +1,4 @@
+import { ReturnAgendamentoDto } from "../model/return-agendamento.dto";
 import { AgendamentoController } from "./agendamento.controller";
 
 it('should create a new agendamento when valid data is provided', async () => {
@@ -71,3 +72,22 @@ it('should create a new agendamento when valid data is provided', async () => {
     ];
     await expect(controller.Create(createAgendamentoDto)).rejects.toThrow();
   });
+
+  it('should return a list of agendamentos when iService.findAll is successful', async () => {
+    const mockAgendamentos = [
+      { id: 1, paciente: { name: 'Lucas' }, data: '2023-10-01', atendimento: 'Consulta', pacienteId: 1 },
+      { id: 2, paciente: { name: 'Maria' }, data: '2023-10-02', atendimento: 'Exame', pacienteId: 2 }
+    ];
+    const mockService = {
+      findAll: jest.fn().mockResolvedValue(mockAgendamentos)
+    };
+    const controller = new AgendamentoController(mockService as any);
+
+    const result = await controller.findAll();
+
+    expect(result).toHaveLength(2);
+    expect(result[0]).toBeInstanceOf(ReturnAgendamentoDto);
+    expect(result[0].id).toBe(1);
+    expect(result[1].id).toBe(2);
+  });
+
